@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>B-Town Wordle · Btown Games</title>
+  <meta name="description" content="A daily word puzzle where every answer is local to Burlington, Vermont. From the Btown Brief." />
+  <meta property="og:title" content="B-Town Wordle" />
+  <meta property="og:description" content="The daily word puzzle where every answer is local to Burlington, Vermont. New puzzle every day at midnight." />
+  <meta property="og:image" content="https://btownbrief.github.io/btown-wordle/assets/og-image.png" />
+  <meta property="og:url" content="https://btownbrief.github.io/btown-wordle/" />
+  <meta name="theme-color" content="#12271a" />
+  <link rel="icon" href="assets/icon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="assets/icon-180.png" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <button class="icon-btn" id="helpBtn" aria-label="How to play">?</button>
+    <h1>B·TOWN <span>WORDLE</span></h1>
+    <button class="icon-btn" id="statsBtn" aria-label="Statistics">📊</button>
+  </header>
+  <div class="daybar" id="dayBar"></div>
+
+  <main>
+    <div id="board" aria-label="Game board"></div>
+    <div id="toast" class="hidden"></div>
+    <div id="keyboard"></div>
+  </main>
+
+  <!-- How to play -->
+  <div class="overlay hidden" id="helpOverlay">
+    <div class="modal">
+      <button class="close" data-close>&times;</button>
+      <h2>How to play</h2>
+      <p>Guess the word in 6 tries. Every answer is <strong>local</strong>: a Burlington street, a Vermont food, a place, a person, a Vermont-ism.</p>
+      <p><strong>Heads up:</strong> answers are 4–7 letters — the board tells you today's length.</p>
+      <div class="example">
+        <div class="ex-row" id="exRow"></div>
+        <p><span class="swatch correct"></span> right letter, right spot &nbsp;·&nbsp; <span class="swatch present"></span> right letter, wrong spot &nbsp;·&nbsp; <span class="swatch absent"></span> not in the word</p>
+      </div>
+      <p>New puzzle every day at midnight (Vermont time, obviously).</p>
+      <p class="fine">A production of <a href="https://www.btownbrief.com" target="_blank" rel="noopener">the Btown Brief</a>, Burlington's favorite newsletter.</p>
+    </div>
+  </div>
+
+  <!-- Stats / results -->
+  <div class="overlay hidden" id="statsOverlay">
+    <div class="modal">
+      <button class="close" data-close>&times;</button>
+      <div id="resultCard" class="hidden">
+        <h2 id="resultHead"></h2>
+        <div class="why-card">
+          <div class="why-label">WHY IT'S LOCAL</div>
+          <div class="why-answer" id="whyAnswer"></div>
+          <p id="whyText"></p>
+          <a id="whyLink" class="hidden" target="_blank" rel="noopener">Read the story →</a>
+        </div>
+      </div>
+      <h2 id="statsHead">Statistics</h2>
+      <div class="stat-row">
+        <div class="stat"><b id="stPlayed">0</b><small>Played</small></div>
+        <div class="stat"><b id="stWinPct">0</b><small>Win %</small></div>
+        <div class="stat"><b id="stCur">0</b><small>Current<br>Streak</small></div>
+        <div class="stat"><b id="stMax">0</b><small>Max<br>Streak</small></div>
+      </div>
+      <h3>Guess distribution</h3>
+      <div id="dist"></div>
+      <div id="finishedRow" class="hidden">
+        <div class="next-box">
+          <div class="next-label">NEXT PUZZLE</div>
+          <div class="countdown" id="countdown">--:--:--</div>
+        </div>
+        <button class="share-btn" id="shareBtn">SHARE 🟩</button>
+      </div>
+
+      <div class="lb hidden" id="lb">
+        <h3>🏆 Longest streaks</h3>
+        <div class="lb-tabs">
+          <button class="tab sel" id="lbThisBtn">This Month</button>
+          <button class="tab" id="lbLastBtn">Last Month</button>
+        </div>
+        <div class="lb-status" id="lbStatus"></div>
+        <ol id="lbList"></ol>
+        <div class="lb-form hidden" id="lbForm">
+          <input id="lbNameInput" maxlength="20" placeholder="Your name" autocomplete="off" />
+          <button class="tab" id="lbSaveBtn">Save</button>
+        </div>
+        <button class="tab lb-rename" id="lbRenameBtn">✏️ Change name</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    A <strong>Btown Games</strong> production · <a href="https://www.btownbrief.com" target="_blank" rel="noopener">Read the Btown Brief →</a>
+  </footer>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

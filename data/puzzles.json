@@ -1,0 +1,493 @@
+{
+  "epoch": "2026-07-07",
+  "puzzles": {
+    "2026-07-07": {
+      "answer": "PEARL",
+      "whyLocal": "Pearl Street runs from the waterfront up past City Hall Park to Winooski Avenue — one of downtown Burlington's original 1790s streets, named for the pearl-ash (potash) trade that built the early town."
+    },
+    "2026-07-08": {
+      "answer": "CREEMEE",
+      "whyLocal": "Vermont's name for soft-serve — and don't you dare call it anything else. The maple creemee, made with real Vermont syrup, is the state's unofficial summer religion."
+    },
+    "2026-07-09": {
+      "answer": "CHAMP",
+      "whyLocal": "Lake Champlain's resident monster, allegedly spotted since the 1800s. Champ is also the mascot of the Vermont Lake Monsters and has a protected-species resolution from the Vermont legislature."
+    },
+    "2026-07-10": {
+      "answer": "ECHO",
+      "whyLocal": "The ECHO Leahy Center for Lake Champlain on Burlington's waterfront — part aquarium, part science museum, and home to about 70 species that live in and around the lake."
+    },
+    "2026-07-11": {
+      "answer": "MAPLE",
+      "whyLocal": "Maple Street climbs from the Burlington waterfront through the South End — and the sugar maple is Vermont's state tree, the source of the syrup that makes the state run."
+    },
+    "2026-07-12": {
+      "answer": "NECTAR",
+      "whyLocal": "Nectar's on Main Street: the club where Phish got their start in the 1980s, still slinging live music and its legendary gravy fries seven nights a week."
+    },
+    "2026-07-13": {
+      "answer": "BERNIE",
+      "whyLocal": "Bernie Sanders was Burlington's mayor from 1981 to 1989 before heading to Congress — the Queen City is where the mittens-and-all political legend began."
+    },
+    "2026-07-14": {
+      "answer": "LEDDY",
+      "whyLocal": "Leddy Park in the New North End: a sandy Lake Champlain beach, ballfields, and the indoor Leddy Arena, all strung along the Burlington Bike Path."
+    },
+    "2026-07-15": {
+      "answer": "CHURCH",
+      "whyLocal": "Church Street Marketplace, Burlington's four-block pedestrian mall since 1981 — buskers, bricks, and the beating heart of downtown."
+    },
+    "2026-07-16": {
+      "answer": "PHISH",
+      "whyLocal": "Formed at UVM in 1983, Phish went from Nectar's house band to one of the biggest live acts in America. Burlington will never let you forget it."
+    },
+    "2026-07-17": {
+      "answer": "BATTERY",
+      "whyLocal": "Battery Park sits on the bluff where American gunners traded cannon fire with the British Navy in the War of 1812. Best free sunset in Burlington."
+    },
+    "2026-07-18": {
+      "answer": "ONION",
+      "whyLocal": "Winooski comes from the Abenaki word for 'land of the wild onion' — which is why Burlington's neighbor across the river is nicknamed the Onion City."
+    },
+    "2026-07-19": {
+      "answer": "STOWE",
+      "whyLocal": "Stowe: ski capital of the East, home of Mount Mansfield's famous Front Four trails and the von Trapp family of 'Sound of Music' fame."
+    },
+    "2026-07-20": {
+      "answer": "FOAM",
+      "whyLocal": "Foam Brewers pours hazy IPAs right on Burlington's waterfront at Lake & College — routinely ranked among the best breweries in the country."
+    },
+    "2026-07-21": {
+      "answer": "HEADY",
+      "whyLocal": "Heady Topper, the double IPA from The Alchemist in Stowe, is the beer that launched a thousand haze-chasing pilgrimages to Vermont."
+    },
+    "2026-07-22": {
+      "answer": "JEEZUM",
+      "whyLocal": "As in 'jeezum crow!' — the all-purpose Vermont exclamation for when things go sideways but you're too polite to swear."
+    },
+    "2026-07-23": {
+      "answer": "FLYNN",
+      "whyLocal": "The Flynn: Burlington's restored 1930 Art Deco theater on Main Street, anchor of the city's performing-arts scene and namesake of Flynn Avenue in the South End."
+    },
+    "2026-07-24": {
+      "answer": "GRAVY",
+      "whyLocal": "Gravy fries at Nectar's — the late-night Burlington ritual. A pile of crinkle-cuts drowned in brown gravy, best consumed after a show."
+    },
+    "2026-07-25": {
+      "answer": "CIDER",
+      "whyLocal": "From Citizen Cider on Pine Street to Shacksbury in Vergennes, hard cider is Vermont's other signature pour — this is apple country, after all."
+    },
+    "2026-07-26": {
+      "answer": "HUMP",
+      "whyLocal": "Camel's Hump, Vermont's most recognizable summit, is one of the highest peaks in the state and the mountain on the back of the Vermont state quarter."
+    },
+    "2026-07-27": {
+      "answer": "QUEEN",
+      "whyLocal": "Burlington is the Queen City — a 19th-century nickname for the largest city in Vermont, queen of the Champlain Valley."
+    },
+    "2026-07-28": {
+      "answer": "SPILE",
+      "whyLocal": "The little tap you hammer into a sugar maple to let the sap run. When the spiles go in around Town Meeting Day, sugaring season is on."
+    },
+    "2026-07-29": {
+      "answer": "BURTON",
+      "whyLocal": "Burton Snowboards was founded by Jake Burton Carpenter in Vermont in 1977 and is headquartered in Burlington — the company that took snowboarding mainstream."
+    },
+    "2026-07-30": {
+      "answer": "TREY",
+      "whyLocal": "Trey Anastasio, Phish's frontman, formed the band as a UVM student in 1983. Burlington remains the band's spiritual home."
+    },
+    "2026-07-31": {
+      "answer": "FORUM",
+      "whyLocal": "Front Porch Forum, the hyperlocal neighborhood email network founded in Burlington — where Vermonters find lost cats, free zucchini, and spirited opinions about parking."
+    },
+    "2026-08-01": {
+      "answer": "STICK",
+      "whyLocal": "Stick season: that gray stretch after the leaves drop but before the snow flies. Strafford's own Noah Kahan put it on the map for everyone else."
+    },
+    "2026-08-02": {
+      "answer": "CABOT",
+      "whyLocal": "Cabot Creamery, the farmer-owned co-op from Cabot, Vermont, whose cheddar has been winning 'world's best' awards since your grandparents' day."
+    },
+    "2026-08-03": {
+      "answer": "LOON",
+      "whyLocal": "The common loon's eerie call is back on Lake Champlain and ponds across Vermont — a conservation comeback story after the bird nearly vanished from the state."
+    },
+    "2026-08-04": {
+      "answer": "ETHAN",
+      "whyLocal": "Ethan Allen, leader of the Green Mountain Boys and Vermont's founding rabble-rouser. His 1787 homestead still stands in Burlington's Intervale."
+    },
+    "2026-08-05": {
+      "answer": "SKINNY",
+      "whyLocal": "The Skinny Pancake started as a crepe cart on Church Street and grew into a Vermont mini-empire — its flagship still anchors the Burlington waterfront."
+    },
+    "2026-08-06": {
+      "answer": "NOTCH",
+      "whyLocal": "Smugglers' Notch, the hairpin mountain pass between Stowe and Jeffersonville — named for the contraband run through it during the 1808 trade embargo. Closed to trucks; they get stuck anyway."
+    },
+    "2026-08-07": {
+      "answer": "WCAX",
+      "whyLocal": "WCAX Channel 3, Vermont's CBS affiliate broadcasting from South Burlington since 1954 — where generations of Vermonters got their news and school closings."
+    },
+    "2026-08-08": {
+      "answer": "FANCY",
+      "whyLocal": "'Fancy' was the top grade of Vermont maple syrup — the lightest, most delicate stuff. The USDA renamed the grades, but old-timers still ask for Fancy."
+    },
+    "2026-08-09": {
+      "answer": "MORAN",
+      "whyLocal": "The Moran Plant, Burlington's hulking 1950s coal-fired power station on the waterfront, was reborn as FRAME — an open-air steel skeleton hosting art and events."
+    },
+    "2026-08-10": {
+      "answer": "CHERRY",
+      "whyLocal": "Cherry Street runs through the middle of downtown Burlington, past the Marketplace parking garage and what locals still call the 'old mall' block."
+    },
+    "2026-08-11": {
+      "answer": "SHANTY",
+      "whyLocal": "The Shanty on the Shore faces the ferry docks on Battery Street — and out on the frozen lake each winter, ice-fishing shanties form Vermont's briefest villages."
+    },
+    "2026-08-12": {
+      "answer": "LEAHY",
+      "whyLocal": "Patrick Leahy represented Vermont in the U.S. Senate for 48 years — longer than anyone in state history — and snuck into five Batman movies along the way."
+    },
+    "2026-08-13": {
+      "answer": "MULE",
+      "whyLocal": "Mule Bar on Winooski's traffic circle helped turn the Onion City into a legitimate food-and-beer destination. Great tap list, better people-watching."
+    },
+    "2026-08-14": {
+      "answer": "GREEN",
+      "whyLocal": "The Green Mountains give Vermont its name — 'les verts monts' — and its spine, with the 272-mile Long Trail running the length of them."
+    },
+    "2026-08-15": {
+      "answer": "LEUNIGS",
+      "whyLocal": "Leunig's Bistro has held down the corner of Church and College since 1980 — Parisian café vibes, Burlington prices (well, almost)."
+    },
+    "2026-08-16": {
+      "answer": "CHIN",
+      "whyLocal": "Mount Mansfield's summit ridge looks like a face in profile: forehead, nose, lips, and the Chin — at 4,393 feet, the highest point in Vermont."
+    },
+    "2026-08-17": {
+      "answer": "RADIO",
+      "whyLocal": "Radio Bean, the cozy North Winooski Avenue café-bar that's hosted live music nearly every night since 2000 — Burlington's bohemian living room."
+    },
+    "2026-08-18": {
+      "answer": "SYRUP",
+      "whyLocal": "Vermont makes over half of all the maple syrup in the United States — more than two million gallons in a good year. It's basically the state currency."
+    },
+    "2026-08-19": {
+      "answer": "FERRY",
+      "whyLocal": "The Lake Champlain ferries have crossed between Vermont and New York since the 1820s — the Burlington–Port Kent run is the scenic summer classic."
+    },
+    "2026-08-20": {
+      "answer": "PINE",
+      "whyLocal": "Pine Street is the spine of Burlington's South End Arts District — breweries, studios, Myer's Bagels, and the annual Art Hop all live here."
+    },
+    "2026-08-21": {
+      "answer": "GRACE",
+      "whyLocal": "Grace Potter, the rock powerhouse from Waitsfield, brought her Grand Point North festival to Burlington's waterfront for over a decade."
+    },
+    "2026-08-22": {
+      "answer": "SMUGGS",
+      "whyLocal": "Smuggs — Smugglers' Notch Resort in Jeffersonville — is Vermont's family-skiing juggernaut, tucked on the back side of the Notch from Stowe."
+    },
+    "2026-08-23": {
+      "answer": "FOLIAGE",
+      "whyLocal": "Peak foliage turns Vermont into a postcard every October and quadruples the traffic on Route 100. Locals check the foliage map like a stock ticker."
+    },
+    "2026-08-24": {
+      "answer": "HULA",
+      "whyLocal": "Hula, the lakeside tech campus in a converted factory on Burlington's Lakeside Avenue — coworking space, startups, and a private beach on Champlain."
+    },
+    "2026-08-25": {
+      "answer": "SODA",
+      "whyLocal": "The Soda Plant on Pine Street once bottled ginger ale; now it's a warren of South End studios, makers, and shops — Burlington adaptive reuse at its best."
+    },
+    "2026-08-26": {
+      "answer": "MUDDY",
+      "whyLocal": "Muddy Waters on Main Street: dim lights, plants everywhere, mismatched wood, and the most Burlington coffee-shop energy imaginable since 1994."
+    },
+    "2026-08-27": {
+      "answer": "COTS",
+      "whyLocal": "COTS — the Committee on Temporary Shelter — has helped Burlingtonians facing homelessness since 1982. Its annual COTS Walk is a beloved local tradition."
+    },
+    "2026-08-28": {
+      "answer": "TEDDY",
+      "whyLocal": "The Vermont Teddy Bear Company in Shelburne has been hand-sewing bears since 1981 — take the factory tour, it's a rite of passage."
+    },
+    "2026-08-29": {
+      "answer": "ROTARY",
+      "whyLocal": "The Winooski rotary: five roads, one circle, zero consensus on how to drive it. The Onion City's roundabout is equal parts landmark and hazing ritual."
+    },
+    "2026-08-30": {
+      "answer": "CERES",
+      "whyLocal": "Ceres, goddess of agriculture, stands atop the golden dome of the Vermont State House in Montpelier — the third version of the statue, carved in 2018."
+    },
+    "2026-08-31": {
+      "answer": "MYERS",
+      "whyLocal": "Myer's Bagels on Pine Street has fired Montreal-style, wood-oven bagels since 1996 — Burlington's little piece of the Mile End."
+    },
+    "2026-09-01": {
+      "answer": "ABENAKI",
+      "whyLocal": "The Abenaki people have lived in the Champlain Valley for thousands of years; place names like Winooski and Missisquoi carry their language across Vermont."
+    },
+    "2026-09-02": {
+      "answer": "FROST",
+      "whyLocal": "Robert Frost spent nearly 40 summers writing in a cabin in Ripton, Vermont, and served as the state's poet laureate. The Frost Trail there quotes him tree by tree."
+    },
+    "2026-09-03": {
+      "answer": "HERO",
+      "whyLocal": "North Hero and South Hero anchor the Champlain Islands — reportedly named for Revolutionary War heroes Ethan and Ira Allen. Apple orchards, bike ferries, lake views."
+    },
+    "2026-09-04": {
+      "answer": "CITIZEN",
+      "whyLocal": "Citizen Cider started with three guys and a truckload of apples and grew into a Pine Street institution — Unified Press is the gateway Vermont cider."
+    },
+    "2026-09-05": {
+      "answer": "BOLTON",
+      "whyLocal": "Bolton Valley, the family-owned ski area 25 minutes from Burlington, is where half the city learned to ski — and its night skiing lights up the ridgeline."
+    },
+    "2026-09-06": {
+      "answer": "GARCIA",
+      "whyLocal": "Cherry Garcia, Ben & Jerry's tribute to the Grateful Dead frontman, was suggested by two Deadheads on a postcard and became the Waterbury company's most iconic flavor."
+    },
+    "2026-09-07": {
+      "answer": "PERKINS",
+      "whyLocal": "Perkins Pier at the foot of Maple Street is Burlington's little harbor — sailboat moorings, sunset benches, and the old lake wall built from local stone."
+    },
+    "2026-09-08": {
+      "answer": "CALVIN",
+      "whyLocal": "Calvin Coolidge, the only president born on the Fourth of July, was sworn in by his own father by kerosene lamp at the family homestead in Plymouth Notch, Vermont."
+    },
+    "2026-09-09": {
+      "answer": "JAZZ",
+      "whyLocal": "The Burlington Discover Jazz Festival has filled Church Street, the waterfront, and every club in town with music each June since 1984."
+    },
+    "2026-09-10": {
+      "answer": "WOOLEN",
+      "whyLocal": "Winooski's massive woolen mills powered the city for a century; today the restored mill buildings house apartments and offices above the falls."
+    },
+    "2026-09-11": {
+      "answer": "SAILOR",
+      "whyLocal": "The Lone Sailor statue stands watch on Burlington's waterfront — a Navy memorial honoring Vermonters who served at sea, gazing out over Champlain."
+    },
+    "2026-09-12": {
+      "answer": "MORGAN",
+      "whyLocal": "The Morgan horse — descended from one Vermont stallion in the 1790s — is the state animal, and UVM still breeds them at its Morgan Horse Farm in Weybridge."
+    },
+    "2026-09-13": {
+      "answer": "MONSTER",
+      "whyLocal": "The Vermont Lake Monsters play summer baseball at Burlington's century-old Centennial Field, with Champ himself leading the seventh-inning stretch."
+    },
+    "2026-09-14": {
+      "answer": "COLLEGE",
+      "whyLocal": "College Street runs straight from UVM's green down to the Lake Champlain waterfront — town and gown connected by one long downhill."
+    },
+    "2026-09-15": {
+      "answer": "AUGUST",
+      "whyLocal": "August First on South Champlain Street bakes some of Burlington's best bread — and famously banned laptops so people would actually talk to each other."
+    },
+    "2026-09-16": {
+      "answer": "HONEY",
+      "whyLocal": "Honey Road's Eastern Mediterranean small plates earned the Church Street restaurant multiple James Beard nods — Burlington's hottest table since 2017."
+    },
+    "2026-09-17": {
+      "answer": "THRUSH",
+      "whyLocal": "The hermit thrush, Vermont's state bird, has a flute-like evening song that haunts the Green Mountain woods all summer."
+    },
+    "2026-09-18": {
+      "answer": "SPIRIT",
+      "whyLocal": "The Spirit of Ethan Allen III cruises Lake Champlain from Burlington's waterfront — sunset dinner cruises with a side of Champ-spotting since 1984."
+    },
+    "2026-09-19": {
+      "answer": "GRANITE",
+      "whyLocal": "Barre calls itself the Granite Center of the World — its quarries built monuments across America, and Hope Cemetery is an open-air sculpture museum."
+    },
+    "2026-09-20": {
+      "answer": "DARN",
+      "whyLocal": "Darn Tough socks are knit in Northfield, Vermont, and guaranteed for life — the Green Mountain answer to cold feet everywhere."
+    },
+    "2026-09-21": {
+      "answer": "ESSEX",
+      "whyLocal": "Essex and Essex Junction make up Vermont's second-largest community — home to the Champlain Valley Fair and the GlobalFoundries chip plant."
+    },
+    "2026-09-22": {
+      "answer": "JERICHO",
+      "whyLocal": "Jericho was home to Wilson 'Snowflake' Bentley, the farmer who first photographed individual snowflakes in 1885 and proved no two are alike."
+    },
+    "2026-09-23": {
+      "answer": "PEEPERS",
+      "whyLocal": "Spring peepers screaming from every wetland is Vermont's true end-of-winter alarm — and 'leaf peepers' is what we call the fall tourists."
+    },
+    "2026-09-24": {
+      "answer": "MISERY",
+      "whyLocal": "Misery Loves Co. grew from a food truck into Winooski's culinary crown jewel — proof the Onion City's food scene is no joke."
+    },
+    "2026-09-25": {
+      "answer": "LAWSON",
+      "whyLocal": "Lawson's Finest Liquids in Waitsfield brews Sip of Sunshine, the IPA that shares tallboy-shelf supremacy with Heady Topper in every Vermont cooler."
+    },
+    "2026-09-26": {
+      "answer": "OKEMO",
+      "whyLocal": "Okemo Mountain in Ludlow is southern Vermont's grooming-obsessed giant — the family resort that grew into one of the state's biggest ski areas."
+    },
+    "2026-09-27": {
+      "answer": "SCOTT",
+      "whyLocal": "Phil Scott, Vermont's governor since 2017, spends his summers racing stock cars at Thunder Road in Barre — and winning."
+    },
+    "2026-09-28": {
+      "answer": "KING",
+      "whyLocal": "King Street runs from downtown Burlington to the ferry dock — one of the city's oldest blocks, home to the King Street Center's youth programs since 1971."
+    },
+    "2026-09-29": {
+      "answer": "PUPPET",
+      "whyLocal": "Bread and Puppet Theater has staged its giant papier-mâché political pageants from a farm in Glover since 1974 — sourdough rye served free after every show."
+    },
+    "2026-09-30": {
+      "answer": "MILTON",
+      "whyLocal": "Milton, just north of Burlington along the Lamoille River delta, is one of Vermont's fastest-growing towns — and home of the annual Milton Truck Parade."
+    },
+    "2026-10-01": {
+      "answer": "SEVENTH",
+      "whyLocal": "Seventh Generation, the green cleaning-products giant, was founded in Burlington in 1988 and still keeps its headquarters on the waterfront."
+    },
+    "2026-10-02": {
+      "answer": "CAMP",
+      "whyLocal": "In Vermont you don't have a lake house or a cabin — you go 'up to camp,' even if camp is 20 minutes away and nicer than your house."
+    },
+    "2026-10-03": {
+      "answer": "QUECHEE",
+      "whyLocal": "Quechee Gorge, 'Vermont's Little Grand Canyon,' plunges 165 feet below the Route 4 bridge — the state's most white-knuckle roadside attraction."
+    },
+    "2026-10-04": {
+      "answer": "MAGIC",
+      "whyLocal": "Magic Hat Brewing put South Burlington on the craft-beer map with #9 and its gloriously weird Mardi Gras parade. The brewery is gone; the nostalgia is forever."
+    },
+    "2026-10-05": {
+      "answer": "COCHRAN",
+      "whyLocal": "Cochran's Ski Area in Richmond is a nonprofit rope-tow hill run by Vermont's first family of ski racing — the Cochrans have sent four generations to the Olympics."
+    },
+    "2026-10-06": {
+      "answer": "DEAN",
+      "whyLocal": "Howard Dean was Vermont's governor for 11 years before his 2004 presidential run — remembered nationally for one very loud scream, locally for much more."
+    },
+    "2026-10-07": {
+      "answer": "SPEEDER",
+      "whyLocal": "Speeder & Earl's has roasted Burlington's coffee since 1993 — the funky Pine Street roastery is a South End institution."
+    },
+    "2026-10-08": {
+      "answer": "MARBLE",
+      "whyLocal": "Vermont's marble belt around Proctor and Danby supplied stone for the Jefferson Memorial and the U.S. Supreme Court — the Marble Museum tells the tale."
+    },
+    "2026-10-09": {
+      "answer": "WILLARD",
+      "whyLocal": "South Willard Street climbs Burlington's Hill Section past grand Victorian mansions and Champlain College's brick campus — Route 7's most elegant stretch."
+    },
+    "2026-10-10": {
+      "answer": "BARRE",
+      "whyLocal": "Barre (that's 'BAIR-ee') is Vermont's granite capital, where Italian stone carvers built a radical labor history and the world's finest memorial stone."
+    },
+    "2026-10-11": {
+      "answer": "BASIN",
+      "whyLocal": "Basin Harbor on Lake Champlain in Vergennes has been run by the same family since 1886 — a classic Vermont summer resort with its own grass airstrip."
+    },
+    "2026-10-12": {
+      "answer": "SPLASH",
+      "whyLocal": "Splash at the Boathouse floats on Lake Champlain at the foot of College Street — Burlington's only bar where the deck actually rocks with the waves."
+    },
+    "2026-10-13": {
+      "answer": "ELMWOOD",
+      "whyLocal": "Elmwood Avenue runs through Burlington's Old North End past Elmwood Cemetery, where the city's earliest settlers — and War of 1812 soldiers — are buried."
+    },
+    "2026-10-14": {
+      "answer": "KUNIN",
+      "whyLocal": "Madeleine Kunin became Vermont's first (and so far only) female governor in 1985 — a Swiss-born refugee who went on to serve as U.S. ambassador to Switzerland."
+    },
+    "2026-10-15": {
+      "answer": "NORWICH",
+      "whyLocal": "Norwich, Vermont, is home to King Arthur Baking's flagship store and more Olympians per capita than almost any town in America."
+    },
+    "2026-10-16": {
+      "answer": "CHEDDAR",
+      "whyLocal": "Shelburne Farms' clothbound cheddar, made with milk from its own Brown Swiss herd, has won best-in-show honors — aged in a barn that looks like a castle."
+    },
+    "2026-10-17": {
+      "answer": "FOOLS",
+      "whyLocal": "The Festival of Fools takes over Church Street every August — three days of world-class buskers, acrobats, and street theater in downtown Burlington."
+    },
+    "2026-10-18": {
+      "answer": "PICO",
+      "whyLocal": "Pico Mountain outside Rutland is Killington's low-key little sibling — an old-school Vermont ski hill where Andrea Mead Lawrence trained for Olympic gold."
+    },
+    "2026-10-19": {
+      "answer": "BRISTOL",
+      "whyLocal": "Bristol's four-block downtown at the foot of the Green Mountains is the classic Vermont main street — complete with a rock inscribed with the Lord's Prayer on Route 17."
+    },
+    "2026-10-20": {
+      "answer": "APPLE",
+      "whyLocal": "The apple is Vermont's state fruit, and apple pie is the official state pie — by law, best served with a slice of cheddar or a scoop of ice cream."
+    },
+    "2026-10-21": {
+      "answer": "SMIRKUS",
+      "whyLocal": "Circus Smirkus, the award-winning youth circus from Greensboro, has sent its big-top tour across New England every summer since 1987."
+    },
+    "2026-10-22": {
+      "answer": "WELCH",
+      "whyLocal": "Peter Welch spent 16 years as Vermont's lone U.S. House member before succeeding Patrick Leahy in the Senate in 2023."
+    },
+    "2026-10-23": {
+      "answer": "HOLLOW",
+      "whyLocal": "Cold Hollow Cider Mill in Waterbury Center presses cider on a 1920s rack-and-cloth press — and its cider donuts are worth the Route 100 traffic."
+    },
+    "2026-10-24": {
+      "answer": "JUNIPER",
+      "whyLocal": "Juniper, the bar and restaurant inside Hotel Vermont, pours one of Burlington's deepest Vermont-beer lists beside a roaring lobby fire."
+    },
+    "2026-10-25": {
+      "answer": "PEACHAM",
+      "whyLocal": "Peacham, tucked in the Northeast Kingdom, is said to be Vermont's most-photographed town come foliage season — white church, red barns, rolling hills, the works."
+    },
+    "2026-10-26": {
+      "answer": "BANK",
+      "whyLocal": "Bank Street cuts through the heart of downtown Burlington — named for the Bank of Burlington, chartered in 1818 as the young city's first bank."
+    },
+    "2026-10-27": {
+      "answer": "LOOMIS",
+      "whyLocal": "Loomis Street sits in Burlington's Old East End near Winooski Avenue — named for the Loomis family, early merchants of the growing lake port."
+    },
+    "2026-10-28": {
+      "answer": "KIPLING",
+      "whyLocal": "Rudyard Kipling wrote 'The Jungle Book' at Naulakha, his house in Dummerston, Vermont — you can still rent it and sleep where Mowgli was born."
+    },
+    "2026-10-29": {
+      "answer": "SLATE",
+      "whyLocal": "The Slate Valley along the Vermont–New York border around Poultney has quarried colored slate since the 1840s — Welsh miners built the industry and left their chapels behind."
+    },
+    "2026-10-30": {
+      "answer": "CHESTER",
+      "whyLocal": "Chester A. Arthur, the 21st president, was born in a tiny parsonage in Fairfield, Vermont — one of two U.S. presidents Vermont has produced."
+    },
+    "2026-10-31": {
+      "answer": "DOBRA",
+      "whyLocal": "Dobra Tea on Church Street is Burlington's shoes-off Bohemian tearoom — hundreds of teas, floor cushions, and no rush whatsoever."
+    },
+    "2026-11-01": {
+      "answer": "THAW",
+      "whyLocal": "The spring thaw brings Vermont's fifth season: mud season, when dirt roads turn to soup and half the state's driveways become impassable."
+    },
+    "2026-11-02": {
+      "answer": "TRINITY",
+      "whyLocal": "UVM's Trinity Campus was Trinity College, a Catholic women's college for nearly a century until 2000 — its green quad still anchors Colchester Avenue."
+    },
+    "2026-11-03": {
+      "answer": "BETA",
+      "whyLocal": "Beta Technologies builds electric aircraft beside Burlington International Airport — the South Burlington startup is one of Vermont's biggest bets on the future."
+    },
+    "2026-11-04": {
+      "answer": "HANDY",
+      "whyLocal": "Handy's Lunch on Maple Street has served diner breakfasts to Burlington since 1945 — three generations of the Handy family behind the flat-top."
+    },
+    "2026-11-05": {
+      "answer": "HOWARD",
+      "whyLocal": "Howard Street crosses Burlington's South End — named for John Purple Howard, the hotelier-philanthropist whose gifts built much of 19th-century Burlington."
+    }
+  }
+}
