@@ -4,7 +4,12 @@ on:
   schedule:
     # Tuesdays 12:00 UTC — keeps the schedule at least 90 days ahead.
     - cron: '0 12 * * 2'
-  workflow_dispatch: {}
+  workflow_dispatch:
+    inputs:
+      min_ahead:
+        description: 'Top up when fewer than this many days remain (testing)'
+        required: false
+        default: '90'
 
 permissions:
   contents: write
@@ -20,6 +25,7 @@ jobs:
       - name: Generate new puzzles with Claude
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          MIN_AHEAD: ${{ github.event.inputs.min_ahead || '90' }}
         run: node scripts/topup-puzzles.mjs
       - name: Commit if changed
         run: |

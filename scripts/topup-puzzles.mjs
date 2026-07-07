@@ -17,7 +17,7 @@ import { fileURLToPath } from 'node:url';
 const FILE = join(dirname(fileURLToPath(import.meta.url)), '..', 'data', 'puzzles.json');
 const FEED = 'https://rss.beehiiv.com/feeds/1BT4mvZXMo.xml';
 const MODEL = 'claude-sonnet-5';
-const MIN_AHEAD = 90;   // top up when fewer than this many future days remain
+const MIN_AHEAD = Number(process.env.MIN_AHEAD || 90); // top up when fewer future days remain
 const BATCH = 30;       // days added per run
 
 const API_KEY = process.env.ANTHROPIC_API_KEY;
