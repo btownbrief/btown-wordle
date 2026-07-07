@@ -13,6 +13,7 @@ on:
 
 permissions:
   contents: write
+  actions: write   # to trigger the Pages deploy after committing
 
 jobs:
   topup:
@@ -35,6 +36,11 @@ jobs:
             git add data/puzzles.json
             git commit -m "Top up puzzle schedule"
             git push
+            # GITHUB_TOKEN pushes don't trigger the push-based deploy workflow,
+            # so kick it explicitly or the live site never gets the new puzzles.
+            gh workflow run deploy.yml --ref main
           else
             echo "Schedule already 90+ days ahead."
           fi
+        env:
+          GH_TOKEN: ${{ github.token }}
