@@ -31,7 +31,10 @@ function msToNextNyMidnight() {
 }
 
 // ------------------------------------------------------------ load puzzle
-const TODAY = nyDateStr();
+// ?testdate=YYYY-MM-DD plays another day's puzzle (testing only; skips
+// stats/streak/leaderboard writes so real progress is never touched)
+const TEST_DATE = new URLSearchParams(location.search).get('testdate');
+const TODAY = TEST_DATE || nyDateStr();
 let data, puzzle, dayNum, ANSWER, COLS, VALID;
 
 async function boot() {
@@ -237,6 +240,7 @@ function bounceRow(r) {
 // ------------------------------------------------------------ persistence
 const STATE_KEY = 'bw-state';
 function save() {
+  if (TEST_DATE) return;
   localStorage.setItem(STATE_KEY, JSON.stringify({ date: TODAY, guesses, status }));
 }
 function restore() {
@@ -272,7 +276,7 @@ function loadStats() {
 function finish(won) {
   save();
   const s = loadStats();
-  if (s.last !== TODAY) { // guard double-count
+  if (!TEST_DATE && s.last !== TODAY) { // guard double-count
     s.played++;
     if (won) {
       s.wins++;
@@ -343,7 +347,7 @@ $('shareBtn').addEventListener('click', async () => {
   const score = status === 'won' ? guesses.length : 'X';
   const text = `B-Town Wordle #${dayNum} ${score}/${ROWS}\n\n${rows}\n\nhttps://btownbrief.github.io/btown-wordle/`;
   try {
-    if (navigator.share) await navigator.share({ text });
+    if (navigator.share && /Mobi|Android|iPhone|iPad/.test(navigator.userAgent)) await navigator.share({ text });
     else { await navigator.clipboard.writeText(text); toast('Copied to clipboard'); }
   } catch { /* user cancelled */ }
 });
@@ -377,7 +381,7 @@ async function updateLeaderboard(fresh) {
   if (!lbEnabled()) return;
   // a win submits the current streak, once per day; a loss submits nothing
   const streak = loadStats().cur;
-  const shouldSubmit = fresh && status === 'won' && streak > 0 &&
+  const shouldSubmit = !TEST_DATE && fresh && status === 'won' && streak > 0 &&
     localStorage.getItem(SUBMIT_KEY) !== TODAY;
   if (shouldSubmit && !getName()) {
     lbForm.classList.remove('hidden');
