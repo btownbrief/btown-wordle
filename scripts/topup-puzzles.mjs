@@ -83,7 +83,7 @@ const res = await fetch('https://api.anthropic.com/v1/messages', {
   },
   body: JSON.stringify({
     model: MODEL,
-    max_tokens: 8000,
+    max_tokens: 16000,
     messages: [{ role: 'user', content: prompt }],
   }),
 });
@@ -100,8 +100,15 @@ try {
   batch = JSON.parse(text);
   if (!Array.isArray(batch)) throw new Error('not an array');
 } catch (e) {
-  console.error(`Could not parse Claude output as JSON array: ${e.message}`);
-  process.exit(1);
+  // response may have been truncated mid-entry — salvage the complete objects
+  const cut = text.lastIndexOf('},');
+  try {
+    batch = JSON.parse(text.slice(0, cut + 1) + ']');
+    console.log(`Recovered ${batch.length} entries from truncated output (stop: ${msg.stop_reason}).`);
+  } catch {
+    console.error(`Could not parse Claude output as JSON array: ${e.message}`);
+    process.exit(1);
+  }
 }
 
 // ---------------------------------------------------------------- validate hard
