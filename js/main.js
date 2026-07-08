@@ -61,6 +61,21 @@ async function boot() {
   buildBoard();
   buildKeyboard();
   restore();
+  maybeShowKbHint();
+}
+
+// First-time cue: nudge players to use the on-screen keyboard. Shows until
+// they type their first letter ever, then stays gone for good.
+const TYPED_KEY = 'bw-typed';
+function maybeShowKbHint() {
+  if (status === 'playing' && guesses.length === 0 && !localStorage.getItem(TYPED_KEY)) {
+    $('kbHint').classList.remove('hidden');
+  }
+}
+function dismissKbHint() {
+  if (localStorage.getItem(TYPED_KEY)) return;
+  localStorage.setItem(TYPED_KEY, '1');
+  $('kbHint').classList.add('hidden');
 }
 
 // ------------------------------------------------------------ board + keyboard
@@ -139,7 +154,7 @@ function handleKey(k) {
   if (ae && ae.tagName === 'INPUT') return;
   if (k === 'Enter') return submitGuess();
   if (k === 'Backspace') { current = current.slice(0, -1); paintCurrent(); return; }
-  if (/^[A-Z]$/.test(k) && current.length < COLS) { current += k; paintCurrent(); }
+  if (/^[A-Z]$/.test(k) && current.length < COLS) { current += k; paintCurrent(); dismissKbHint(); }
 }
 
 let toastTimer;
