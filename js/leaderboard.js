@@ -33,19 +33,36 @@ function playerToken() {
 export function getName() { return localStorage.getItem('btown-player-name') || ''; }
 export function setName(n) { localStorage.setItem('btown-player-name', n.trim().slice(0, 20)); }
 
-async function rpc(fn, args) {
+// Retry transient failures. A cold Supabase project (free tier sleeps after
+// idle) or a brief network blip can drop the first request; without a retry a
+// single miss leaves the UI stuck on "unavailable". All RPCs here are
+// idempotent (best-score upsert / name upsert / read), so re-sending is safe.
+// Only network errors and 5xx are retried; a 4xx is a real error, fail fast.
+async function rpc(fn, args, attempts = 3) {
   const headers = { apikey: SUPABASE_ANON_KEY, 'Content-Type': 'application/json' };
   // legacy JWT-style anon keys also go in the Authorization header;
   // new sb_publishable_ keys must not (they aren't bearer tokens)
   if (SUPABASE_ANON_KEY.startsWith('eyJ')) headers.Authorization = `Bearer ${SUPABASE_ANON_KEY}`;
-  const res = await fetch(`${SUPABASE_URL.replace(/\/+$/, '')}/rest/v1/rpc/${fn}`, {
-    method: 'POST',
-    headers,
-    body: JSON.stringify(args),
-  });
-  if (!res.ok) throw new Error(`${fn} failed: ${res.status}`);
-  const text = await res.text();
-  return text ? JSON.parse(text) : null;
+  const url = `${SUPABASE_URL.replace(/\/+$/, '')}/rest/v1/rpc/${fn}`;
+  let lastErr;
+  for (let attempt = 1; attempt <= attempts; attempt++) {
+    let res;
+    try {
+      res = await fetch(url, { method: 'POST', headers, body: JSON.stringify(args) });
+    } catch (e) {
+      lastErr = e; // network/DNS blip — retry
+      if (attempt < attempts) await new Promise((r) => setTimeout(r, 400 * attempt));
+      continue;
+    }
+    if (res.ok) {
+      const text = await res.text();
+      return text ? JSON.parse(text) : null;
+    }
+    if (res.status < 500) throw new Error(`${fn} failed: ${res.status}`); // client error — retrying won't help
+    lastErr = new Error(`${fn} failed: ${res.status}`); // cold start / server error — retry
+    if (attempt < attempts) await new Promise((r) => setTimeout(r, 400 * attempt));
+  }
+  throw lastErr;
 }
 
 // offset 0 = this month, -1 = last month (matches the server's month_key)
