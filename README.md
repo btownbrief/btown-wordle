@@ -2,7 +2,7 @@
 
 The daily word puzzle where every answer is local to Burlington, Vermont —
 a [Btown Games](https://btownbrief.github.io/btown-wordle/) production from
-the [Btown Brief](https://www.btownbrief.com).
+the [BTown Brief](https://www.btownbrief.com).
 
 **Play: https://btownbrief.github.io/btown-wordle/**
 
@@ -17,7 +17,7 @@ the [Btown Brief](https://www.btownbrief.com).
 
 `data/puzzles.json` maps dates → `{answer, whyLocal, sourceUrl?}`. A weekly
 GitHub Action (`.github/workflows/topup.yml`) keeps the schedule at least
-90 days ahead: it seeds Claude with recent Btown Brief RSS content and all
+90 days ahead: it seeds Claude with recent BTown Brief RSS content and all
 previously used answers (repeats forbidden), validates the batch hard, and
 commits only what passes. Deploys are automatic via GitHub Pages
 (`deploy.yml`).

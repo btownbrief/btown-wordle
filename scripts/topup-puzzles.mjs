@@ -2,7 +2,7 @@
 // B-Town Wordle schedule top-up.
 //
 // Keeps data/puzzles.json at least MIN_AHEAD days ahead of today
-// (America/New_York). When the runway is short it fetches recent Btown Brief
+// (America/New_York). When the runway is short it fetches recent BTown Brief
 // editions from RSS for topical seed material, then asks Claude for a batch
 // of new local answers (4–7 letters) with "why it's local" blurbs. Every
 // candidate is validated hard; invalid or repeat answers are dropped. If the
@@ -57,7 +57,7 @@ try {
 // ---------------------------------------------------------------- Claude
 const used = [...new Set(Object.values(data.puzzles).map((p) => p.answer.toUpperCase()))];
 
-const prompt = `You are the puzzle editor for B-Town Wordle, the daily word game of the Btown Brief, a Burlington, Vermont newsletter. Every answer must be LOCAL: a Burlington street or place, a Vermont town, food, business, person, institution, or Vermont-ism. Answers must be real, verifiable local terms a Burlington-area reader would recognize — never invented, never generic English words without a genuine local angle.
+const prompt = `You are the puzzle editor for B-Town Wordle, the daily word game of the BTown Brief, a Burlington, Vermont newsletter. Every answer must be LOCAL: a Burlington street or place, a Vermont town, food, business, person, institution, or Vermont-ism. Answers must be real, verifiable local terms a Burlington-area reader would recognize — never invented, never generic English words without a genuine local angle.
 
 Produce ${BATCH} NEW puzzle entries as a JSON array. Each entry:
 {"answer": "4-7 uppercase A-Z letters, single word, no spaces/punctuation", "whyLocal": "1-2 informative sentences on its Burlington/Vermont significance", "sourceUrl": "optional — ONLY if the entry comes directly from one of the newsletter editions below, use that edition's URL"}
