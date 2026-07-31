@@ -16,9 +16,15 @@
 </head>
 <body>
   <header>
-    <button class="icon-btn" id="helpBtn" aria-label="How to play">?</button>
-    <h1>B·TOWN <span>WORDLE</span></h1>
+    <div class="hdr-side">
+      <button class="icon-btn" id="helpBtn" aria-label="How to play">?</button>
+    </div>
+    <div class="brand">
+      <h1>B·TOWN <span>WORDLE</span></h1>
+      <span id="streakBadge" class="streak-badge hidden" aria-label="Current streak"></span>
+    </div>
     <div class="hdr-btns">
+      <button class="icon-btn" id="soundBtn" aria-label="Turn sound on" aria-pressed="false">🔇</button>
       <button class="icon-btn" id="duelBtn" aria-label="Challenge a friend">⚔️</button>
       <button class="icon-btn" id="statsBtn" aria-label="Statistics">📊</button>
     </div>
@@ -31,10 +37,11 @@
 
   <main>
     <div id="board" aria-label="Game board"></div>
-    <div id="toast" class="hidden"></div>
+    <div id="toast" class="hidden" role="status" aria-live="polite"></div>
     <div id="kbHint" class="kb-hint hidden">👇 Tap these keys to guess — then ENTER</div>
     <div id="keyboard"></div>
   </main>
+  <div id="celebration" aria-hidden="true"></div>
 
   <!-- How to play -->
   <div class="overlay hidden" id="helpOverlay">
