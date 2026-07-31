@@ -24,6 +24,13 @@ language.
 - The leaderboard uses the **shared Btown Games Supabase backend** (`js/leaderboard.js`,
   game slug `btown-wordle`). The public anon key can only call security-definer RPCs;
   never put a service-role key or secret in client JS.
+- Friend duels use the same shared rooms backend. `js/rooms.js`, `js/duel.js`, and
+  `scripts/rooms-shim.mjs` are vendored and must remain byte-identical to their
+  canonical copies in `four-in-a-rowboat/js/rooms.js`,
+  `maple-scramble/js/duel.js`, and
+  `four-in-a-rowboat/scripts/rooms-shim.mjs`. Game-specific payload, result, and
+  winner rules live in `js/duel-game.js`. Duel play must never write the daily
+  save, stats, streak, share state, or leaderboard score.
 
 ## Runtime AI (leave on Claude)
 `topup.yml` calls the Anthropic API via the `ANTHROPIC_API_KEY` repo secret. This is
@@ -31,6 +38,7 @@ runtime puzzle generation and is independent of which coding assistant edits the
 do not switch it to another provider unless Stephen explicitly asks.
 
 ## Before you finish
-No test suite. Sanity-check by running the generator locally if you touched it
-(`node scripts/topup-puzzles.mjs`), and confirm `data/puzzles.json` still parses and
-the site loads. Say what you verified.
+Run `node scripts/test-duel.mjs` and `node --check` on every touched JavaScript
+file. Sanity-check by running the generator locally if you touched it
+(`node scripts/topup-puzzles.mjs`), and confirm `data/puzzles.json` still parses
+and the site loads. Say what you verified.
