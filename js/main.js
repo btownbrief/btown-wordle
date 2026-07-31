@@ -16,6 +16,9 @@ import {
   answerEntries, duelEntryForPayload, randomDuelPayload,
   makeDuelResult, compareDuelResults,
 } from './duel-game.js';
+import {
+  soundEnabled, setSoundEnabled, playTap, playFlip, playError, playWin,
+} from './audio.js';
 
 const $ = (id) => document.getElementById(id);
 
@@ -90,6 +93,8 @@ async function boot() {
   buildBoard();
   buildKeyboard();
   restore();
+  updateHeaderStreak();
+  updateSoundButton();
   maybeShowKbHint();
 }
 
@@ -187,9 +192,33 @@ function handleKey(k) {
   const ae = document.activeElement;
   if (ae && ae.tagName === 'INPUT') return;
   if (k === 'Enter') return submitGuess();
-  if (k === 'Backspace') { current = current.slice(0, -1); paintCurrent(); return; }
-  if (/^[A-Z]$/.test(k) && current.length < COLS) { current += k; paintCurrent(); dismissKbHint(); }
+  if (k === 'Backspace' && current) {
+    playTap();
+    current = current.slice(0, -1);
+    paintCurrent();
+    return;
+  }
+  if (/^[A-Z]$/.test(k) && current.length < COLS) {
+    playTap();
+    current += k;
+    paintCurrent();
+    dismissKbHint();
+  }
 }
+
+function updateSoundButton() {
+  const on = soundEnabled();
+  const button = $('soundBtn');
+  button.textContent = on ? '🔊' : '🔇';
+  button.setAttribute('aria-pressed', String(on));
+  button.setAttribute('aria-label', `Turn sound ${on ? 'off' : 'on'}`);
+}
+
+$('soundBtn').addEventListener('click', () => {
+  setSoundEnabled(!soundEnabled());
+  updateSoundButton();
+  if (soundEnabled()) playTap();
+});
 
 let toastTimer;
 function toast(msg, ms = 1400) {
@@ -200,10 +229,14 @@ function toast(msg, ms = 1400) {
   toastTimer = setTimeout(() => t.classList.add('hidden'), ms);
 }
 
+let invalidTimer;
 function shakeRow() {
   const row = rowEl(guesses.length);
-  row.classList.add('shake');
-  setTimeout(() => row.classList.remove('shake'), 500);
+  row.classList.remove('shake');
+  void row.offsetWidth;
+  row.classList.add('shake', 'invalid');
+  clearTimeout(invalidTimer);
+  invalidTimer = setTimeout(() => row.classList.remove('shake', 'invalid'), 650);
 }
 
 // ------------------------------------------------------------ guessing
@@ -225,17 +258,31 @@ function evaluate(guess) {
 const WIN_WORDS = ['Jeezum Crow!', 'Wicked good!', 'Champ-level!', 'Nice one, bud', 'Cutting it close', 'Phew!'];
 
 function submitGuess() {
-  if (current.length < COLS) { toast('Not enough letters'); shakeRow(); return; }
-  if (!VALID.has(current)) { toast('Not in word list'); shakeRow(); return; }
+  if (current.length < COLS) {
+    const missing = COLS - current.length;
+    toast(`Add ${missing} more letter${missing === 1 ? '' : 's'} before ENTER`);
+    playError();
+    shakeRow();
+    return;
+  }
+  if (!VALID.has(current)) {
+    toast(`“${current}” isn’t in the word list — try another word`);
+    playError();
+    shakeRow();
+    return;
+  }
   const guess = current;
   guesses.push(guess);
   current = '';
   revealRow(guesses.length - 1, guess, evaluate(guess), true, () => {
     if (guess === ANSWER) {
       status = 'won';
-      toast(WIN_WORDS[guesses.length - 1], 2200);
+      const result = finish(true) || {};
+      const streakBeat = result.streakSaved ? ` · 🔥 ${result.streak} streak saved!` : '';
+      toast(`${WIN_WORDS[guesses.length - 1]}${streakBeat}`, 2400);
       bounceRow(guesses.length - 1);
-      finish(true);
+      celebrateWin(guesses.length - 1);
+      playWin(guesses.length - 1);
     } else if (guesses.length >= ROWS) {
       status = 'lost';
       toast(ANSWER, 3000);
@@ -248,42 +295,89 @@ function submitGuess() {
 
 const COLORS = { correct: '#4f9d5d', present: '#d4a72c', absent: '#33453a' };
 const RANK = { absent: 0, present: 1, correct: 2 };
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+function upgradeKey(letter, result, animate) {
+  const key = keyEls[letter];
+  if (!key) return;
+  const currentState = ['correct', 'present', 'absent'].find((state) => key.classList.contains(state));
+  if (currentState && RANK[result] <= RANK[currentState]) return;
+  key.className = `key ${result}`;
+  if (animate) {
+    key.classList.remove('upgrade');
+    void key.offsetWidth;
+    key.classList.add('upgrade');
+    setTimeout(() => key.classList.remove('upgrade'), 260);
+  }
+}
 
 function revealRow(r, guess, res, animate, done) {
   const row = rowEl(r);
-  revealing = animate;
+  const useMotion = animate && !reducedMotion.matches;
+  revealing = useMotion;
   for (let c = 0; c < COLS; c++) {
     const t = row.children[c];
     t.textContent = guess[c];
-    if (animate) {
+    if (useMotion) {
       setTimeout(() => {
         t.style.setProperty('--reveal', COLORS[res[c]]);
         t.classList.add('flip');
+        setTimeout(() => {
+          playFlip(res[c]);
+          upgradeKey(guess[c], res[c], true);
+        }, 250);
         setTimeout(() => { t.className = `tile ${res[c]}`; t.style.removeProperty('--reveal'); }, 500);
       }, c * 260);
     } else {
       t.className = `tile ${res[c]}`;
+      upgradeKey(guess[c], res[c], false);
     }
   }
   const finishUp = () => {
-    for (let c = 0; c < COLS; c++) {
-      const k = keyEls[guess[c]];
-      if (!k) continue;
-      const cur = ['correct', 'present', 'absent'].find((s) => k.classList.contains(s));
-      if (!cur || RANK[res[c]] > RANK[cur]) k.className = `key ${res[c]}`;
-    }
     revealing = false;
     if (done) done();
   };
-  if (animate) setTimeout(finishUp, COLS * 260 + 300);
+  if (useMotion) setTimeout(finishUp, COLS * 260 + 300);
   else finishUp();
 }
 
 function bounceRow(r) {
+  if (reducedMotion.matches) return;
   const row = rowEl(r);
   for (let c = 0; c < COLS; c++) {
     setTimeout(() => row.children[c].classList.add('bounce'), c * 90);
   }
+}
+
+let celebrationTimer;
+let leafTimer;
+function celebrateWin(rowIndex) {
+  const row = rowEl(rowIndex);
+  const brilliance = ROWS - rowIndex;
+  row.style.setProperty('--win-strength', String(0.35 + brilliance * 0.1));
+  row.classList.add('win-flash');
+  clearTimeout(celebrationTimer);
+  celebrationTimer = setTimeout(() => row.classList.remove('win-flash'), 1400);
+  if (reducedMotion.matches) return;
+
+  const layer = $('celebration');
+  clearTimeout(leafTimer);
+  layer.replaceChildren();
+  const count = Math.min(36, 8 + brilliance * 4);
+  const center = row.getBoundingClientRect();
+  layer.style.setProperty('--burst-x', `${center.left + center.width / 2}px`);
+  layer.style.setProperty('--burst-y', `${center.top + center.height / 2}px`);
+  for (let i = 0; i < count; i++) {
+    const leaf = document.createElement('span');
+    leaf.className = 'leaf';
+    leaf.textContent = i % 3 === 0 ? '🍂' : '🍁';
+    leaf.style.setProperty('--angle', `${(360 / count) * i + Math.random() * 14 - 7}deg`);
+    leaf.style.setProperty('--distance', `${70 + Math.random() * (55 + brilliance * 8)}px`);
+    leaf.style.setProperty('--spin', `${Math.random() * 540 - 270}deg`);
+    leaf.style.setProperty('--delay', `${Math.random() * 90}ms`);
+    layer.appendChild(leaf);
+  }
+  leafTimer = setTimeout(() => layer.replaceChildren(), 1400);
 }
 
 // ------------------------------------------------------------ persistence
@@ -323,6 +417,24 @@ function loadStats() {
   }
 }
 
+function updateHeaderStreak(pulse = false) {
+  const badge = $('streakBadge');
+  if (!DAILY_STATE_ENABLED) {
+    badge.classList.add('hidden');
+    return;
+  }
+  const streak = loadStats().cur || 0;
+  badge.textContent = `🔥 ${streak}`;
+  badge.setAttribute('aria-label', `Current streak: ${streak}`);
+  badge.classList.toggle('hidden', streak < 1);
+  if (pulse && streak > 0 && !reducedMotion.matches) {
+    badge.classList.remove('saved');
+    void badge.offsetWidth;
+    badge.classList.add('saved');
+    setTimeout(() => badge.classList.remove('saved'), 700);
+  }
+}
+
 function finish(won) {
   if (DUEL_MODE) {
     onDuelFinish(won);
@@ -330,6 +442,7 @@ function finish(won) {
   }
   save();
   const s = loadStats();
+  let streakSaved = false;
   if (DAILY_STATE_ENABLED && s.last !== TODAY) { // guard double-count
     s.played++;
     if (won) {
@@ -339,13 +452,16 @@ function finish(won) {
       s.cur = (s.lastWin && daysBetween(s.lastWin, TODAY) === 1) ? s.cur + 1 : 1;
       s.max = Math.max(s.max, s.cur);
       s.lastWin = TODAY;
+      streakSaved = true;
     } else {
       s.cur = 0;
     }
     s.last = TODAY;
     localStorage.setItem(STATS_KEY, JSON.stringify(s));
   }
+  updateHeaderStreak(streakSaved);
   setTimeout(() => showResults(true), won ? 1600 : 900);
+  return { streak: s.cur || 0, streakSaved };
 }
 
 // ------------------------------------------------------------ results modal
