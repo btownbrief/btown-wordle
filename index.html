@@ -115,7 +115,7 @@
     <div class="modal small-modal">
       <button class="close" data-close>&times;</button>
       <h2>⚔️ Challenge a friend</h2>
-      <p>Same Burlington-flavored word, two phones. Solve it in fewer guesses—or win the tiebreak on time. Today’s puzzle stays untouched.</p>
+      <p>Same Burlington-flavored word, 2–4 phones. Solve it in fewer guesses—or win the tiebreak on time. Today’s puzzle stays untouched.</p>
       <button class="share-btn modal-action" id="hostBtn">Start a duel — get a code</button>
       <button class="share-btn modal-action" id="joinBtn">Join a duel — enter their code</button>
       <button class="tab hidden" id="rejoinBtn"></button>
@@ -127,6 +127,14 @@
       <h2 id="opTitle">Start a duel</h2>
       <label class="duel-label" for="opName">Your name</label>
       <input class="duel-input" id="opName" maxlength="24" autocomplete="nickname" placeholder="Wordsmith" />
+      <div id="opSeatsWrap">
+        <label class="duel-label">Racers in this heat</label>
+        <div id="opSeats" class="seat-btns" role="group" aria-label="Racers in this heat">
+          <button class="seat-btn selected" data-seats="2" aria-pressed="true">2</button>
+          <button class="seat-btn" data-seats="3" aria-pressed="false">3</button>
+          <button class="seat-btn" data-seats="4" aria-pressed="false">4</button>
+        </div>
+      </div>
       <div id="opCodeWrap" class="hidden">
         <label class="duel-label" for="opCode">Duel code</label>
         <input class="duel-input duel-code" id="opCode" maxlength="4" autocapitalize="characters" autocomplete="off" spellcheck="false" placeholder="ABCD" />
@@ -139,9 +147,11 @@
 
   <div class="overlay hidden" id="lobby" data-static>
     <div class="modal small-modal">
-      <h2>Send this code to your rival</h2>
+      <h2>Send this code to your rivals</h2>
       <div id="lobbyCode"></div>
-      <p class="fine" id="lobbyStatus">They tap ⚔️ → <b>Join a duel</b> and enter it. Once they join, both puzzles open.</p>
+      <div id="lobbyList"></div>
+      <button class="share-btn modal-action" id="inviteBtn">📲 Send an invite</button>
+      <p class="fine" id="lobbyStatus">They tap ⚔️ → <b>Join a duel</b> and enter it. When the last chair fills, every puzzle opens.</p>
       <button class="tab" id="lobbyCancel">Call it off</button>
     </div>
   </div>

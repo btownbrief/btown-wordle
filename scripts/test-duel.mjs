@@ -1,6 +1,6 @@
 // Duel wiring test: drives the real vendored duel client (js/duel.js →
-// js/rooms.js) against the local shim as two simulated phones playing the
-// same answer-list index. No network and no Supabase required.
+// js/rooms.js) against the local shim as simulated phones playing the same
+// answer-list index. No network and no Supabase required.
 //
 //   node scripts/test-duel.mjs
 
@@ -15,7 +15,7 @@ const puzzleData = JSON.parse(await readFile(new URL('../data/puzzles.json', imp
 const htmlSource = await readFile(new URL('../index.html', import.meta.url), 'utf8');
 const mainSource = await readFile(new URL('../js/main.js', import.meta.url), 'utf8');
 
-/* ------------------------------------------------- two-phone environment */
+/* ----------------------------------------------------- device environment */
 
 const stores = new Map();
 let current = 'A';
@@ -30,6 +30,7 @@ function device(d) {
 }
 device('A');
 device('B');
+device('C');
 
 let passed = 0;
 function t(cond, label) {
@@ -74,9 +75,10 @@ const TODAY = '2026-07-30';
 const todayAnswer = puzzleData.puzzles[TODAY].answer;
 const requiredIds = [
   'duelBtn', 'hostBtn', 'joinBtn', 'rejoinBtn', 'onlinePanel', 'opTitle',
-  'opName', 'opCodeWrap', 'opCode', 'opError', 'opGo', 'opCancel', 'lobby',
-  'lobbyCode', 'lobbyCancel', 'duelBar', 'duelDone', 'duelDoneHead',
-  'duelDoneRows', 'duelRematchBtn', 'duelExitBtn',
+  'opName', 'opSeatsWrap', 'opSeats', 'opCodeWrap', 'opCode', 'opError',
+  'opGo', 'opCancel', 'lobby', 'lobbyCode', 'lobbyList', 'inviteBtn',
+  'lobbyCancel', 'duelBar', 'duelDone', 'duelDoneHead', 'duelDoneRows',
+  'duelRematchBtn', 'duelExitBtn',
 ];
 t(requiredIds.every((id) => htmlSource.includes(`id="${id}"`)),
   'fleet smoke-test element IDs are present');
@@ -84,6 +86,9 @@ t(mainSource.includes('const DAILY_STATE_ENABLED = !TEST_DATE && !DUEL_MODE;') &
   mainSource.includes('if (DUEL_MODE || !lbEnabled()) return;') &&
   mainSource.includes('if (DUEL_MODE) {\n    onDuelFinish(won);\n    return;'),
 'duel mode gates daily saves, results, stats, and leaderboard submission');
+t(mainSource.includes('seats: duelSeats') && mainSource.includes("get('join')") &&
+  mainSource.includes('renderLobbyRoster(d)'),
+'group seats, live roster, and race-link invite wiring are present');
 const payload = randomDuelPayload(puzzleData, TODAY, todayAnswer, () => 0.42);
 const phoneAWord = duelEntryForPayload(puzzleData, payload);
 const phoneBWord = duelEntryForPayload(puzzleData, JSON.parse(JSON.stringify(payload)));
@@ -185,6 +190,52 @@ await guest.match._fetch();
 t(guest.others()[0].left === true, 'guest sees the host left');
 await expectCode(guest.submitResult(unsolved), 'opponent_left',
   'submit into an abandoned duel says why');
+
+/* --------------------------------------------- 3-racer heat (group duel) */
+
+device('A');
+const h3 = await Duel.create({ game: GAME, name: 'Ada', payload, seats: 3 });
+t(h3.status === 'waiting' && h3.match.maxSeats === 3,
+  '3-seat heat opens, maxSeats tracked');
+device('B');
+const g3b = await Duel.join({ game: GAME, code: h3.code, name: 'Bea' });
+t(g3b.status === 'waiting' && g3b.match.maxSeats === 3,
+  'second racer seated, heat still waiting');
+device('C');
+const g3c = await Duel.join({ game: GAME, code: h3.code, name: 'Cal' });
+t(g3c.status === 'playing' && g3c.payload.index === payload.index,
+  'third racer fills the heat with the shared word index');
+
+device('A');
+await h3.match._fetch();
+t(h3.others().map((racer) => racer.name).join(',') === 'Bea,Cal',
+  'host sees both rivals in the full field');
+await h3.submitResult(solvedMoreGuesses);
+device('B');
+await g3b.match._fetch();
+t(!g3b.isComplete(), 'one of three in — heat stays open');
+await g3b.submitResult(solvedSlow);
+device('C');
+await g3c.match._fetch();
+t(!g3c.isComplete(), 'two of three in — heat still stays open');
+await g3c.submitResult(unsolved);
+
+device('A'); await h3.match._fetch();
+device('B'); await g3b.match._fetch();
+device('C'); await g3c.match._fetch();
+t(h3.isComplete() && g3b.isComplete() && g3c.isComplete() && h3.status === 'over',
+  'all three staggered results merge and close the heat');
+const standings = [
+  { name: 'Ada', result: h3.myResult() },
+  ...h3.others().map((racer) => ({ name: racer.name, result: racer.result })),
+].sort((a, b) => -compareDuelResults(a.result, b.result));
+t(standings.map((racer) => racer.name).join(',') === 'Bea,Ada,Cal',
+  'standings rank solved first, then fewer guesses, then unsolved');
+t(compareDuelResults(standings[0].result, standings[1].result) > 0 &&
+  compareDuelResults(standings[1].result, standings[2].result) > 0,
+'three-racer standings have one correct winner and ordered field');
+t(g3b.others().every((racer) => racer.result),
+  'winning phone sees every rival grid result');
 
 console.log(`\nALL DUEL TESTS PASSED (${passed} checks)`);
 process.exit(0);

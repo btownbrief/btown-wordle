@@ -524,6 +524,28 @@ footer a { color: var(--accent); text-decoration: none; }
 .duel-cell.absent { background: var(--absent); }
 .duel-mode #statsBtn { display: none; }
 
+/* group duels: seat picker + lobby roster */
+.seat-btns { display: flex; gap: 8px; justify-content: center; }
+.seat-btn {
+  flex: 1;
+  max-width: 64px;
+  padding: 10px 0;
+  font: inherit;
+  font-size: 18px;
+  font-weight: 800;
+  color: inherit;
+  background: var(--bg);
+  border: 2px solid var(--border);
+  border-radius: 10px;
+  cursor: pointer;
+}
+.seat-btn.selected {
+  border-color: var(--accent);
+  background: var(--panel);
+}
+#lobbyList { font-weight: 700; font-size: 14px; padding: 2px 0 4px; }
+#lobbyList .chair-empty { opacity: 0.45; }
+
 .hidden { display: none; }
 
 @media (max-width: 390px) {
