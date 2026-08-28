@@ -16,12 +16,14 @@ import { fileURLToPath } from 'node:url';
 
 const FILE = join(dirname(fileURLToPath(import.meta.url)), '..', 'data', 'puzzles.json');
 const FEED = 'https://rss.beehiiv.com/feeds/1BT4mvZXMo.xml';
-const MODEL = 'claude-sonnet-5';
+// GLM's mandatory reasoning consumed the whole 16k budget generating 30
+// puzzle entries and returned no parseable JSON. luna reasons adaptively.
+const MODEL = 'openai/gpt-5.6-luna';
 const MIN_AHEAD = Number(process.env.MIN_AHEAD || 90); // top up when fewer future days remain
 const BATCH = 30;       // days added per run
 
-const API_KEY = process.env.ANTHROPIC_API_KEY;
-if (!API_KEY) { console.error('ANTHROPIC_API_KEY is not set'); process.exit(1); }
+const API_KEY = process.env.OPENROUTER_API_KEY;
+if (!API_KEY) { console.error('OPENROUTER_API_KEY is not set'); process.exit(1); }
 
 const data = JSON.parse(readFileSync(FILE, 'utf8'));
 const dates = Object.keys(data.puzzles).sort();
@@ -74,7 +76,7 @@ ${newsletterText || '(unavailable this week — use evergreen local answers)'}
 
 Reply with ONLY the JSON array, no markdown fences, no commentary.`;
 
-const res = await fetch('https://api.anthropic.com/v1/messages', {
+const res = await fetch('https://openrouter.ai/api/v1/messages', {
   method: 'POST',
   headers: {
     'x-api-key': API_KEY,
