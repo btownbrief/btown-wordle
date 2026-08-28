@@ -16,9 +16,9 @@ import { fileURLToPath } from 'node:url';
 
 const FILE = join(dirname(fileURLToPath(import.meta.url)), '..', 'data', 'puzzles.json');
 const FEED = 'https://rss.beehiiv.com/feeds/1BT4mvZXMo.xml';
-// non-reasoning: GLM's mandatory reasoning consumed the whole 16k budget
-// generating 30 puzzle entries and returned no parseable JSON.
-const MODEL = 'openai/gpt-4o-mini';
+// GLM's mandatory reasoning consumed the whole 16k budget generating 30
+// puzzle entries and returned no parseable JSON. luna reasons adaptively.
+const MODEL = 'openai/gpt-5.6-luna';
 const MIN_AHEAD = Number(process.env.MIN_AHEAD || 90); // top up when fewer future days remain
 const BATCH = 30;       // days added per run
 
