@@ -1,0 +1,22 @@
+{
+  "name": "BTown Wordle",
+  "short_name": "BTown Wordle",
+  "description": "BTown Wordle. A Btown Games production.",
+  "start_url": ".",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#12271a",
+  "theme_color": "#12271a",
+  "icons": [
+    {
+      "src": "assets/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "assets/icon-180.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}
