@@ -750,6 +750,128 @@
     "2027-01-04": {
       "answer": "ORLEANS",
       "whyLocal": "Orleans is a Vermont village in the Northeast Kingdom, located near Lake Willoughby and the Barton River."
+    },
+    "2027-01-05": {
+      "answer": "BETHEL",
+      "whyLocal": "Bethel is a Vermont town in Windsor County, known for its historic granite industry and the Bethel White Granite quarry."
+    },
+    "2027-01-06": {
+      "answer": "DORSET",
+      "whyLocal": "Dorset is a southwestern Vermont town famous for the Dorset Theatre Festival and the historic Dorset Marble Quarry."
+    },
+    "2027-01-07": {
+      "answer": "RIPTON",
+      "whyLocal": "Ripton is a Vermont town in Addison County on the edge of the Green Mountain National Forest and near the Bread Loaf campus."
+    },
+    "2027-01-08": {
+      "answer": "ORANGE",
+      "whyLocal": "Orange is a central Vermont town in Orange County, home to the historic district around the Orange Center Meeting House."
+    },
+    "2027-01-09": {
+      "answer": "CHELSEA",
+      "whyLocal": "Chelsea is the shire town of Orange County, Vermont, with a courthouse square and a long history as a regional government center."
+    },
+    "2027-01-10": {
+      "answer": "JOHNSON",
+      "whyLocal": "Johnson is a northern Vermont town and the home of Northern Vermont University-Johnson, now part of Vermont State University."
+    },
+    "2027-01-11": {
+      "answer": "PHILO",
+      "whyLocal": "Mount Philo in Charlotte is one of the best-known short hikes near Burlington, with panoramic views of Lake Champlain and the Adirondacks."
+    },
+    "2027-01-12": {
+      "answer": "ALLEN",
+      "whyLocal": "Ethan Allen was a leader of the Green Mountain Boys and a central figure in Vermont's independence-era history."
+    },
+    "2027-01-13": {
+      "answer": "VTRANS",
+      "whyLocal": "VTrans is the Vermont Agency of Transportation, responsible for the state's highways, bridges, rail, aviation, and public transit."
+    },
+    "2027-01-14": {
+      "answer": "PHOENIX",
+      "whyLocal": "Phoenix Books operates a Burlington location and regularly hosts author talks and community events in the area.",
+      "sourceUrl": "https://www.btownbrief.com/p/monday-october-12th"
+    },
+    "2027-01-15": {
+      "answer": "MATER",
+      "whyLocal": "Mater Christi School is a Catholic school in Burlington that hosts community programs, including Dad Guild's open-gym basketball.",
+      "sourceUrl": "https://www.btownbrief.com/p/monday-october-12th"
+    },
+    "2027-01-16": {
+      "answer": "ELKS",
+      "whyLocal": "Burlington's Elks Lodge on North Avenue is a longstanding fraternal organization and hosts community events such as Monday-night bingo.",
+      "sourceUrl": "https://www.btownbrief.com/p/monday-october-5th"
+    },
+    "2027-01-17": {
+      "answer": "BRIO",
+      "whyLocal": "Brio Coffeeworks is a Burlington coffee company with a café on Pine Street.",
+      "sourceUrl": "https://www.btownbrief.com/p/wednesday-october-7th"
+    },
+    "2027-01-18": {
+      "answer": "KISMAYO",
+      "whyLocal": "Kismayo Kitchen is a Burlington restaurant known for Somali dishes and other East African flavors."
+    },
+    "2027-01-19": {
+      "answer": "PENNY",
+      "whyLocal": "Penny Cluse is a beloved Burlington breakfast restaurant on Church Street, known for hearty plates and long weekend lines."
+    },
+    "2027-01-20": {
+      "answer": "PINGALA",
+      "whyLocal": "Pingala is a Burlington plant-based restaurant and juice bar with locations associated with the city's downtown food scene."
+    },
+    "2027-01-21": {
+      "answer": "OTTER",
+      "whyLocal": "Otter Creek Brewing, founded in Middlebury, is one of Vermont's best-known craft breweries."
+    },
+    "2027-01-22": {
+      "answer": "CRETON",
+      "whyLocal": "Creton is a seasoned pork spread associated with French-Canadian cooking, a tradition found in many Vermont families and communities."
+    },
+    "2027-01-23": {
+      "answer": "WHOOPIE",
+      "whyLocal": "Whoopie pies are a familiar Vermont bakery treat and a staple of local fairs, general stores, and farm stands."
+    },
+    "2027-01-24": {
+      "answer": "SPEAR",
+      "whyLocal": "Spear Street and Spear Street Extension run through Burlington and South Burlington along the city's southeastern side."
+    },
+    "2027-01-25": {
+      "answer": "NORTH",
+      "whyLocal": "North Avenue is one of Burlington's major north-south roads, connecting downtown with neighborhoods and the New North End."
+    },
+    "2027-01-26": {
+      "answer": "MAIN",
+      "whyLocal": "Main Street is a central Burlington thoroughfare running through downtown and past the University of Vermont campus."
+    },
+    "2027-01-27": {
+      "answer": "SHANKAR",
+      "whyLocal": "Violinist L. Shankar was booked at Burlington's Higher Ground Showcase Lounge for a performance featuring his ten-string double violin.",
+      "sourceUrl": "https://www.btownbrief.com/p/monday-october-12th"
+    },
+    "2027-01-28": {
+      "answer": "MAGOO",
+      "whyLocal": "Magoo, a Denver bluegrass band, appeared at the Higher Ground Showcase Lounge in South Burlington.",
+      "sourceUrl": "https://www.btownbrief.com/p/monday-october-12th"
+    },
+    "2027-01-29": {
+      "answer": "COLLAGE",
+      "whyLocal": "The Collage Collective meets at Expressive Arts Burlington on Flynn Avenue for community art-making sessions.",
+      "sourceUrl": "https://www.btownbrief.com/p/monday-october-12th"
+    },
+    "2027-01-30": {
+      "answer": "WIZARD",
+      "whyLocal": "Burlington's Night Council organizes costumed bar crawls such as Wizard Night in downtown Burlington.",
+      "sourceUrl": "https://www.btownbrief.com/p/wednesday-october-7th"
+    },
+    "2027-01-31": {
+      "answer": "CLOWN",
+      "whyLocal": "Clown Night was one of the costumed downtown Burlington crawls organized by the Burlington Night Council.",
+      "sourceUrl": "https://www.btownbrief.com/p/wednesday-october-7th"
+    },
+    "2027-02-01": {
+      "answer": "GUILD",
+      "whyLocal": "Dad Guild is a Burlington organization for dads and masculine-identifying caregivers that hosts meetups, workshops, and family activities.",
+      "sourceUrl": "https://www.btownbrief.com/p/monday-october-5th"
     }
   }
 }
